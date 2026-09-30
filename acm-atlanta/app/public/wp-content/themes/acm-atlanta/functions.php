@@ -124,6 +124,17 @@ function acm_atlanta_setup() {
 add_action( 'after_setup_theme', 'acm_atlanta_setup' );
 
 
+// ── Browser Tab Icon ──────────────────────────────────────────────
+// Uses the chapter logo unless a Site Icon is set in Appearance → Customize
+function acm_atlanta_favicon() {
+    if ( has_site_icon() ) return;
+    $dir = get_template_directory_uri() . '/images/';
+    echo '<link rel="icon" type="image/png" href="' . esc_url( $dir . 'favicon.png' ) . '"/>' . "\n";
+    echo '<link rel="apple-touch-icon" href="' . esc_url( $dir . 'apple-touch-icon.png' ) . '"/>' . "\n";
+}
+add_action( 'wp_head', 'acm_atlanta_favicon' );
+
+
 // ── Events Custom Post Type ───────────────────────────────────────
 function acm_atlanta_register_events() {
     register_post_type( 'acm_event', [

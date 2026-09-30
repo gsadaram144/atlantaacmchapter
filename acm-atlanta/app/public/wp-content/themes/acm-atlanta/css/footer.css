@@ -24,12 +24,20 @@
 }
 
 /* ── Brand Column ── */
-.footer-logo {
-    height: 52px;
-    width: auto;
-    display: block;
+.footer-logo-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-3);
     margin-bottom: var(--space-4);
+    text-decoration: none;
 }
+.footer-logo {
+    height: 56px;
+    width: 56px;
+    display: block;
+}
+.footer-logo-link .site-logo-name    { color: var(--white); }
+.footer-logo-link .site-logo-tagline { color: var(--gold); }
 
 .footer-desc {
     font-size: var(--text-sm);
