@@ -283,6 +283,7 @@ function acm_atlanta_default_officers() {
         'Chair' => [
             'name'     => 'Gangadhar Sadaram',
             'linkedin' => 'https://www.linkedin.com/in/gangadhar-sadaram-00b0b0159/',
+            'photo'    => 'officer-chair-gangadhar-sadaram.jpg', // file in the theme's images/ folder
         ],
     ];
 
@@ -299,7 +300,7 @@ function acm_atlanta_default_officers() {
             'email'       => $person['email'] ?? '',
             'linkedin'    => $person['linkedin'] ?? '',
             'bio'         => '',
-            'photo'       => '',
+            'photo'       => ! empty( $person['photo'] ) ? get_template_directory_uri() . '/images/' . $person['photo'] : '',
             'initial'     => strtoupper( mb_substr( $name ?: $role, 0, 1 ) ),
             'placeholder' => $name === '',
         ];
