@@ -272,24 +272,36 @@ function acm_atlanta_officer_roles() {
 }
 
 /**
- * Placeholder roster shown on the Officers page when no officers exist yet.
- * Only the core elected positions are shown.
+ * Default roster shown on the Officers page when no officers exist in WP Admin.
+ * Only the core elected positions are shown; positions without a name listed
+ * in $appointed display as "To Be Announced".
  */
 function acm_atlanta_default_officers() {
-    $roles   = acm_atlanta_officer_roles();
+    $roles = acm_atlanta_officer_roles();
+
+    $appointed = [
+        'Chair' => [
+            'name'     => 'Gangadhar Sadaram',
+            'linkedin' => 'https://www.linkedin.com/in/gangadhar-sadaram-00b0b0159/',
+        ],
+    ];
+
     $default = [];
     foreach ( [ 'Chair', 'Vice Chair', 'Secretary', 'Treasurer' ] as $role ) {
+        $person = $appointed[ $role ] ?? [];
+        $name   = $person['name'] ?? '';
         $default[] = [
-            'id'       => 0,
-            'slug'     => sanitize_title( $role ),
-            'name'     => 'To Be Announced',
-            'title'    => $role,
-            'duties'   => $roles[ $role ],
-            'email'    => '',
-            'linkedin' => '',
-            'bio'      => '',
-            'photo'    => '',
-            'initial'  => strtoupper( mb_substr( $role, 0, 1 ) ),
+            'id'          => 0,
+            'slug'        => sanitize_title( $role ),
+            'name'        => $name ?: 'To Be Announced',
+            'title'       => $role,
+            'duties'      => $roles[ $role ],
+            'email'       => $person['email'] ?? '',
+            'linkedin'    => $person['linkedin'] ?? '',
+            'bio'         => '',
+            'photo'       => '',
+            'initial'     => strtoupper( mb_substr( $name ?: $role, 0, 1 ) ),
+            'placeholder' => $name === '',
         ];
     }
     return $default;

@@ -490,7 +490,9 @@ Set **Display Order** to control the sequence of buttons on the Officers page:
 
 #### Before Officers Are Added
 
-Until at least one officer is published, the Officers page shows the core positions (Chair, Vice Chair, Secretary, Treasurer) as **To Be Announced**. The standard role names and default responsibilities live in `acm_atlanta_officer_roles()` in `functions.php`.
+Until at least one officer is published, the Officers page shows a default roster of the core positions (Chair, Vice Chair, Secretary, Treasurer). Names for these positions are set in the `$appointed` list in `acm_atlanta_default_officers()` in `functions.php`; any position without a name shows as **To Be Announced**. The standard role names and default responsibilities live in `acm_atlanta_officer_roles()` in the same file.
+
+> ⚠️ As soon as one officer is published in WP Admin, the default roster is no longer shown — so when you start managing officers in WP Admin, add **every** officer there (including the Chair).
 
 ---
 

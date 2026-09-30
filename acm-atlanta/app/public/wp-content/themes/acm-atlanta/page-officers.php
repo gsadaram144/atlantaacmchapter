@@ -35,7 +35,7 @@ if ( $officers->have_posts() ) {
     wp_reset_postdata();
 }
 
-// Until officers are published in WP Admin, show the standard positions as open
+// Until officers are published in WP Admin, show the default roster
 $showing_placeholders = empty( $officer_list );
 if ( $showing_placeholders ) {
     $officer_list = acm_atlanta_default_officers();
@@ -79,7 +79,7 @@ $gradients = [ 'avatar-A', 'avatar-B', 'avatar-C', 'avatar-D' ];
                             <?php echo esc_html($o['initial']); ?>
                         <?php endif; ?>
                     </div>
-                    <span class="role-btn-name"><?php echo esc_html( $showing_placeholders ? 'TBA' : $display_name ); ?></span>
+                    <span class="role-btn-name"><?php echo esc_html( empty( $o['placeholder'] ) ? $display_name : 'TBA' ); ?></span>
                     <span class="role-btn-title"><?php echo esc_html($o['title']); ?></span>
                 </button>
                 <?php endforeach; ?>
