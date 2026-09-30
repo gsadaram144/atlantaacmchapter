@@ -1,0 +1,87 @@
+/**
+ * ACM Atlanta — Header & Navigation
+ */
+
+.site-header {
+    background: var(--white);
+    border-bottom: 3px solid var(--blue);
+    position: sticky;
+    top: 0;
+    z-index: 200;
+    box-shadow: var(--shadow-sm);
+}
+
+.header-inner {
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 0 var(--space-8);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+}
+
+/* ── Logo ── */
+.site-logo { display: flex; align-items: center; text-decoration: none; }
+.site-logo img { height: 48px; display: block; width: auto; }
+
+/* Responsive logos */
+.logo-tablet { display: none; }
+.logo-mobile { display: none; }
+
+/* ── Nav ── */
+.site-nav ul {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.site-nav a {
+    color: var(--blue-dark);
+    text-decoration: none;
+    font-size: 14.5px;
+    font-weight: 600;
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--radius-sm);
+    letter-spacing: 0.2px;
+    transition: background var(--transition), color var(--transition);
+}
+.site-nav a:hover {
+    background: var(--blue-light);
+    color: var(--blue);
+}
+
+/* Join CTA in nav */
+.site-nav .nav-cta {
+    background: var(--gold);
+    color: var(--blue-dark) !important;
+    padding: var(--space-2) var(--space-5);
+    border-radius: var(--radius-sm);
+    font-weight: 700;
+    margin-left: var(--space-2);
+}
+.site-nav .nav-cta:hover {
+    background: var(--gold-dark);
+}
+
+/* ── Mobile Hamburger (hidden on desktop) ── */
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: var(--space-2);
+    flex-direction: column;
+    gap: 5px;
+}
+.nav-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--blue-dark);
+    border-radius: 2px;
+    transition: transform var(--transition);
+}

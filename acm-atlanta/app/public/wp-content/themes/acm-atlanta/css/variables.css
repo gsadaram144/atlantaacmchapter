@@ -1,0 +1,74 @@
+/**
+ * ACM Atlanta — Design Tokens / CSS Variables
+ * All colors, spacing, typography scales defined here.
+ * Edit this file to restyle the entire site.
+ */
+
+:root {
+
+    /* ── Brand Colors ── */
+    --blue:         #0062A3;
+    --blue-dark:    #002855;
+    --blue-light:   #EEF5FB;
+    --gold:         #F7A800;
+    --gold-dark:    #D4920A;
+    --gold-light:   #FEF3D0;
+
+    /* ── Neutral Colors ── */
+    --white:        #FFFFFF;
+    --gray-50:      #F5F9FD;
+    --gray-100:     #EEF5FB;
+    --gray-200:     #C8DFF0;
+    --gray-400:     #8DA3B8;
+    --gray-600:     #556070;
+    --gray-900:     #1C2B3A;
+
+    /* ── Semantic Colors ── */
+    --text:         var(--gray-900);
+    --text-muted:   var(--gray-600);
+    --border:       var(--gray-200);
+    --bg-light:     var(--gray-100);
+    --bg-alt:       var(--gray-50);
+
+    /* ── Typography ── */
+    --font-serif:   'Merriweather', Georgia, serif;
+    --font-sans:    'Source Sans 3', system-ui, sans-serif;
+
+    --text-xs:      11px;
+    --text-sm:      13px;
+    --text-base:    16px;
+    --text-md:      17.5px;
+    --text-lg:      20px;
+    --text-xl:      24px;
+    --text-2xl:     32px;
+    --text-3xl:     clamp(1.8rem, 3.5vw, 2.8rem);
+    --text-hero:    clamp(2rem, 3.8vw, 3rem);
+
+    /* ── Spacing ── */
+    --space-1:      4px;
+    --space-2:      8px;
+    --space-3:      12px;
+    --space-4:      16px;
+    --space-5:      20px;
+    --space-6:      24px;
+    --space-8:      32px;
+    --space-10:     40px;
+    --space-12:     48px;
+    --space-16:     64px;
+    --space-20:     80px;
+
+    /* ── Layout ── */
+    --container:    1200px;
+    --radius-sm:    3px;
+    --radius:       6px;
+    --radius-lg:    10px;
+
+    /* ── Shadows ── */
+    --shadow-sm:    0 2px 8px rgba(0, 40, 85, 0.07);
+    --shadow:       0 4px 16px rgba(0, 40, 85, 0.10);
+    --shadow-lg:    0 10px 36px rgba(0, 40, 85, 0.13);
+
+    /* ── Transitions ── */
+    --transition:   0.15s ease;
+    --transition-md: 0.25s ease;
+}
