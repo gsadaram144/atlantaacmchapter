@@ -146,10 +146,9 @@ get_header(); ?>
             else : ?>
                 <!-- Placeholder events shown when no posts exist yet -->
                 <div class="event-card">
-                    <div class="event-date-box">
-                        <span class="month">Apr</span>
-                        <span class="day">17</span>
-                        <span class="year">2025</span>
+                    <div class="event-date-box event-date-box--tba">
+                        <span class="month">Coming</span>
+                        <span class="day">2027</span>
                     </div>
                     <div class="event-info">
                         <h3>AI &amp; Machine Learning in the Enterprise — Panel Discussion</h3>
@@ -164,10 +163,9 @@ get_header(); ?>
                 </div>
 
                 <div class="event-card">
-                    <div class="event-date-box">
-                        <span class="month">Mar</span>
-                        <span class="day">27</span>
-                        <span class="year">2025</span>
+                    <div class="event-date-box event-date-box--tba">
+                        <span class="month">Coming</span>
+                        <span class="day">2027</span>
                     </div>
                     <div class="event-info">
                         <h3>Cybersecurity Best Practices for Software Developers</h3>
@@ -182,14 +180,13 @@ get_header(); ?>
                 </div>
 
                 <div class="event-card">
-                    <div class="event-date-box">
-                        <span class="month">Mar</span>
-                        <span class="day">06</span>
-                        <span class="year">2025</span>
+                    <div class="event-date-box event-date-box--tba">
+                        <span class="month">Coming</span>
+                        <span class="day">2027</span>
                     </div>
                     <div class="event-info">
                         <h3>ACM Atlanta Chapter Kickoff Meetup &amp; Networking Night</h3>
-                        <p>Welcome new members, meet chapter leadership, and hear about the 2025 event calendar. Light refreshments provided.</p>
+                        <p>Welcome new members, meet chapter leadership, and hear about the 2027 event calendar. Light refreshments provided.</p>
                         <div class="event-meta">
                             <span>🕕 6:00 – 8:00 PM</span>
                             <span>📍 Atlanta, GA (Details TBD)</span>
