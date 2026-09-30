@@ -12,17 +12,18 @@
 <header class="site-header">
     <div class="header-inner">
 
-        <!-- Logo — uses <picture> so browser picks the right size natively, no CSS needed -->
+        <!-- Logo -->
         <a href="<?php echo esc_url(home_url('/')); ?>" class="site-logo" aria-label="<?php bloginfo('name'); ?> Home">
-            <picture>
-                <source media="(max-width: 480px)" srcset="https://atlanta.acm.org/wp-content/uploads/2026/03/acm_logo_mobile.svg"/>
-                <source media="(max-width: 960px)" srcset="https://atlanta.acm.org/wp-content/uploads/2026/03/acm_logo_tablet.svg"/>
-                <img
-                    src="https://atlanta.acm.org/wp-content/uploads/2026/03/acm_logo-1.gif"
-                    alt="ACM Atlanta – Association for Computing Machinery"
-                    height="48"
-                />
-            </picture>
+            <img
+                src="<?php echo esc_url( get_template_directory_uri() . '/images/acm-atlanta-logo.png' ); ?>"
+                alt=""
+                width="48"
+                height="48"
+            />
+            <span class="site-logo-text">
+                <span class="site-logo-name">ACM Atlanta</span>
+                <span class="site-logo-tagline">Professional Chapter</span>
+            </span>
         </a>
 
         <!-- Primary Navigation -->

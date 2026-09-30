@@ -4,6 +4,7 @@
  */
 
 require_once get_template_directory() . '/inc/event-registrations.php';
+require_once get_template_directory() . '/inc/site-setup.php';
 
 // ── Asset Versioning ──────────────────────────────────────────────
 // Uses the file's last-modified time as its version so browsers pick up
@@ -121,6 +122,17 @@ function acm_atlanta_setup() {
     ]);
 }
 add_action( 'after_setup_theme', 'acm_atlanta_setup' );
+
+
+// ── Browser Tab Icon ──────────────────────────────────────────────
+// Uses the chapter logo unless a Site Icon is set in Appearance → Customize
+function acm_atlanta_favicon() {
+    if ( has_site_icon() ) return;
+    $dir = get_template_directory_uri() . '/images/';
+    echo '<link rel="icon" type="image/png" href="' . esc_url( $dir . 'favicon.png' ) . '"/>' . "\n";
+    echo '<link rel="apple-touch-icon" href="' . esc_url( $dir . 'apple-touch-icon.png' ) . '"/>' . "\n";
+}
+add_action( 'wp_head', 'acm_atlanta_favicon' );
 
 
 // ── Events Custom Post Type ───────────────────────────────────────

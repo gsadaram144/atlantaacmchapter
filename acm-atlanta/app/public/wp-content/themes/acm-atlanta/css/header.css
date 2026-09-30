@@ -22,8 +22,25 @@
 }
 
 /* ── Logo ── */
-.site-logo { display: flex; align-items: center; text-decoration: none; }
-.site-logo img { height: 48px; display: block; width: auto; }
+.site-logo { display: flex; align-items: center; gap: var(--space-3); text-decoration: none; }
+.site-logo img { height: 48px; width: 48px; display: block; }
+
+/* Wordmark next to the logo (shared with the footer) */
+.site-logo-text { display: flex; flex-direction: column; line-height: 1.15; }
+.site-logo-name {
+    font-family: var(--font-serif);
+    font-size: 19px;
+    font-weight: 900;
+    color: var(--blue-dark);
+    letter-spacing: 0.2px;
+}
+.site-logo-tagline {
+    font-size: var(--text-xs);
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--blue);
+}
 
 /* Responsive logos */
 .logo-tablet { display: none; }

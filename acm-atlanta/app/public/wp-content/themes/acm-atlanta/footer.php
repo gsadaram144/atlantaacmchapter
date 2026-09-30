@@ -4,12 +4,18 @@
 
             <!-- Brand Column -->
             <div class="footer-brand">
-                <a href="<?php echo esc_url(home_url('/')); ?>">
+                <a href="<?php echo esc_url(home_url('/')); ?>" class="footer-logo-link" aria-label="<?php bloginfo('name'); ?> Home">
                     <img
-                        src="https://atlanta.acm.org/wp-content/uploads/2026/03/logo_footer_acm-1.png"
-                        alt="<?php bloginfo('name'); ?>"
+                        src="<?php echo esc_url( get_template_directory_uri() . '/images/acm-atlanta-logo.png' ); ?>"
+                        alt=""
                         class="footer-logo"
+                        width="56"
+                        height="56"
                     />
+                    <span class="site-logo-text">
+                        <span class="site-logo-name">ACM Atlanta</span>
+                        <span class="site-logo-tagline">Professional Chapter</span>
+                    </span>
                 </a>
                 <p class="footer-desc">
                     A professional chapter of the Association for Computing Machinery
@@ -24,7 +30,7 @@
                         'facebook'  => ['url' => '#', 'label' => 'Facebook',    'img' => 'https://atlanta.acm.org/wp-content/uploads/2026/03/facebook.svg'],
                         'youtube'   => ['url' => '#', 'label' => 'YouTube',     'img' => 'https://atlanta.acm.org/wp-content/uploads/2026/03/youtube.svg'],
                         'instagram' => ['url' => '#', 'label' => 'Instagram',   'img' => 'https://atlanta.acm.org/wp-content/uploads/2026/03/instagram.svg'],
-                        'mail'      => ['url' => 'mailto:acmchapteratlanta@gmail.com', 'label' => 'Email', 'img' => 'https://atlanta.acm.org/wp-content/uploads/2026/03/mail.svg'],
+                        'mail'      => ['url' => 'mailto:acmchapteratlanta@gmail.com', 'label' => 'Email', 'img' => get_template_directory_uri() . '/images/mail.svg'],
                     ];
                     foreach ($socials as $name => $data) :
                         if ( $data['url'] === '#' ) continue; ?>

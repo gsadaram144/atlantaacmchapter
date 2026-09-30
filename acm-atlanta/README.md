@@ -338,7 +338,7 @@ Do these once before the first automated deploy:
 4. **Run the first deploy** — Actions → Deploy theme → Run workflow.
 5. **Activate the theme** — WP Admin → Appearance → Themes → ACM Atlanta → Activate.
 6. **Create the pages** with slugs `about`, `events`, `officers`, `membership`, `contact` and set a static homepage (Settings → Reading).
-7. **Upload the logo and icon images** — the header, footer and homepage banner load images from `https://atlanta.acm.org/wp-content/uploads/2026/03/…`. Upload those files to the Media Library and make sure the URLs in `header.php`, `footer.php`, `front-page.php` and `page-about.php` match where WordPress stored them.
+7. **Remaining remote images** — the chapter logo (`images/acm-atlanta-logo.png`), browser-tab icon and footer email icon ship with the theme. Two images still load from `https://atlanta.acm.org/wp-content/uploads/2026/03/…`: the homepage banner (`front-page.php`) and the ACM Global logo on the About page (`page-about.php`). Upload those files to the Media Library and make sure the URLs match, or add them to the theme's `images/` folder.
 8. **Add the officers** (see [Managing Officers](#managing-officers)).
 
 ### After Deploying
