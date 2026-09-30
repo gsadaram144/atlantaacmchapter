@@ -515,6 +515,8 @@ Social links are hardcoded in `footer.php`. To update them:
 3. Replace `'#'` with the actual social media URL for each platform
 4. Save and deploy
 
+> Platforms left as `'#'` are hidden automatically — an icon only appears once it has a real URL. The email icon links to `acmchapteratlanta@gmail.com`.
+
 ---
 
 ## Cloudflare Turnstile Configuration
