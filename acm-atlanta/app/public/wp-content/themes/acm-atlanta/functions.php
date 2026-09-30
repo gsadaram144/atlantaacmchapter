@@ -5,6 +5,14 @@
 
 require_once get_template_directory() . '/inc/event-registrations.php';
 
+// ── Asset Versioning ──────────────────────────────────────────────
+// Uses the file's last-modified time as its version so browsers pick up
+// CSS/JS changes right after a deploy instead of serving a cached copy.
+function acm_atlanta_asset_version( $relative_path ) {
+    $file = get_template_directory() . $relative_path;
+    return file_exists( $file ) ? (string) filemtime( $file ) : '1.0.0';
+}
+
 // ── Enqueue Styles & Scripts ──────────────────────────────────────
 function acm_atlanta_enqueue_assets() {
 
@@ -21,7 +29,7 @@ function acm_atlanta_enqueue_assets() {
         'acm-variables',
         get_template_directory_uri() . '/css/variables.css',
         ['acm-google-fonts'],
-        '1.0.0'
+        acm_atlanta_asset_version( '/css/variables.css' )
     );
 
     // Typography
@@ -29,7 +37,7 @@ function acm_atlanta_enqueue_assets() {
         'acm-typography',
         get_template_directory_uri() . '/css/typography.css',
         ['acm-variables'],
-        '1.0.0'
+        acm_atlanta_asset_version( '/css/typography.css' )
     );
 
     // Layout
@@ -37,7 +45,7 @@ function acm_atlanta_enqueue_assets() {
         'acm-layout',
         get_template_directory_uri() . '/css/layout.css',
         ['acm-variables'],
-        '1.0.0'
+        acm_atlanta_asset_version( '/css/layout.css' )
     );
 
     // Buttons
@@ -45,7 +53,7 @@ function acm_atlanta_enqueue_assets() {
         'acm-buttons',
         get_template_directory_uri() . '/css/buttons.css',
         ['acm-variables'],
-        '1.0.0'
+        acm_atlanta_asset_version( '/css/buttons.css' )
     );
 
     // Header
@@ -53,7 +61,7 @@ function acm_atlanta_enqueue_assets() {
         'acm-header',
         get_template_directory_uri() . '/css/header.css',
         ['acm-variables'],
-        '1.0.0'
+        acm_atlanta_asset_version( '/css/header.css' )
     );
 
     // Footer
@@ -61,7 +69,7 @@ function acm_atlanta_enqueue_assets() {
         'acm-footer',
         get_template_directory_uri() . '/css/footer.css',
         ['acm-variables'],
-        '1.0.0'
+        acm_atlanta_asset_version( '/css/footer.css' )
     );
 
     // Registrations form
@@ -69,7 +77,7 @@ function acm_atlanta_enqueue_assets() {
         'acm-registrations',
         get_template_directory_uri() . '/css/registrations.css',
         ['acm-variables'],
-        '1.0.0'
+        acm_atlanta_asset_version( '/css/registrations.css' )
     );
 
     // Responsive (load last)
@@ -77,7 +85,7 @@ function acm_atlanta_enqueue_assets() {
         'acm-responsive',
         get_template_directory_uri() . '/css/responsive.css',
         ['acm-variables'],
-        '1.0.0'
+        acm_atlanta_asset_version( '/css/responsive.css' )
     );
 
     // Main JS
@@ -85,7 +93,7 @@ function acm_atlanta_enqueue_assets() {
         'acm-main',
         get_template_directory_uri() . '/js/main.js',
         [],
-        '1.0.0',
+        acm_atlanta_asset_version( '/js/main.js' ),
         true // load in footer
     );
 }
@@ -247,6 +255,46 @@ function acm_atlanta_register_officers() {
 }
 add_action( 'init', 'acm_atlanta_register_officers' );
 
+/**
+ * Standard ACM professional chapter officer positions, in display order.
+ * Offered as suggestions in the Officer editor and used as placeholders
+ * on the Officers page until real officer profiles are published.
+ */
+function acm_atlanta_officer_roles() {
+    return [
+        'Chair'            => 'Leads the chapter, chairs officer and member meetings, and represents ACM Atlanta to ACM and the regional computing community.',
+        'Vice Chair'       => 'Supports the Chair, steps in when the Chair is unavailable, and coordinates chapter programs and speaker outreach.',
+        'Secretary'        => 'Keeps meeting minutes and chapter records, manages member communications, and files the annual report with ACM.',
+        'Treasurer'        => 'Manages chapter finances, membership dues, and budgets, and prepares the annual financial report for ACM.',
+        'Membership Chair' => 'Recruits and welcomes new members, maintains the member roster, and runs member engagement initiatives.',
+        'Program Chair'    => 'Plans the events calendar, secures venues and speakers, and coordinates event logistics.',
+    ];
+}
+
+/**
+ * Placeholder roster shown on the Officers page when no officers exist yet.
+ * Only the core elected positions are shown.
+ */
+function acm_atlanta_default_officers() {
+    $roles   = acm_atlanta_officer_roles();
+    $default = [];
+    foreach ( [ 'Chair', 'Vice Chair', 'Secretary', 'Treasurer' ] as $role ) {
+        $default[] = [
+            'id'       => 0,
+            'slug'     => sanitize_title( $role ),
+            'name'     => 'To Be Announced',
+            'title'    => $role,
+            'duties'   => $roles[ $role ],
+            'email'    => '',
+            'linkedin' => '',
+            'bio'      => '',
+            'photo'    => '',
+            'initial'  => strtoupper( mb_substr( $role, 0, 1 ) ),
+        ];
+    }
+    return $default;
+}
+
 
 // ── Officer Meta Fields ───────────────────────────────────────────
 function acm_atlanta_officer_meta_box() {
@@ -279,7 +327,12 @@ function acm_atlanta_render_officer_meta( $post ) {
     <div class="acm-meta-grid">
         <div class="acm-meta-field">
             <label for="officer_title">🏷 Role / Title <span style="color:red">*</span></label>
-            <input type="text" id="officer_title" name="officer_title" value="<?php echo esc_attr($title); ?>" placeholder="Chapter President"/>
+            <input type="text" id="officer_title" name="officer_title" value="<?php echo esc_attr($title); ?>" placeholder="Chair" list="acm_officer_roles"/>
+            <datalist id="acm_officer_roles">
+                <?php foreach ( array_keys( acm_atlanta_officer_roles() ) as $role ) : ?>
+                    <option value="<?php echo esc_attr( $role ); ?>"></option>
+                <?php endforeach; ?>
+            </datalist>
         </div>
         <div class="acm-meta-field">
             <label for="officer_order">↕ Display Order</label>
@@ -287,11 +340,11 @@ function acm_atlanta_render_officer_meta( $post ) {
         </div>
         <div class="acm-meta-field acm-meta-full">
             <label for="officer_duties">📋 Duties &amp; Responsibilities</label>
-            <textarea id="officer_duties" name="officer_duties" rows="3" placeholder="Leads the chapter, chairs meetings, represents ACM Atlanta at regional events..."><?php echo esc_textarea($duties); ?></textarea>
+            <textarea id="officer_duties" name="officer_duties" rows="3" placeholder="Leads the chapter, chairs officer meetings, represents ACM Atlanta at regional events..."><?php echo esc_textarea($duties); ?></textarea>
         </div>
         <div class="acm-meta-field">
             <label for="officer_email">✉️ Email Address</label>
-            <input type="email" id="officer_email" name="officer_email" value="<?php echo esc_attr($email); ?>" placeholder="president@atlanta.acm.org"/>
+            <input type="email" id="officer_email" name="officer_email" value="<?php echo esc_attr($email); ?>" placeholder="chair@atlanta.acm.org"/>
         </div>
         <div class="acm-meta-field">
             <label for="officer_linkedin">🔗 LinkedIn URL</label>

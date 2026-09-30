@@ -25,6 +25,8 @@
 
     /* ── Semantic Colors ── */
     --text:         var(--gray-900);
+    --text-body:    var(--gray-900);
+    --text-dark:    var(--blue-dark);
     --text-muted:   var(--gray-600);
     --border:       var(--gray-200);
     --bg-light:     var(--gray-100);

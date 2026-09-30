@@ -1,0 +1,45 @@
+# Deploys the acm-atlanta WordPress theme to the ACM-hosted server over FTP(S)
+# whenever theme files change on main. Only changed files are uploaded.
+#
+# Required repository secrets (Settings → Secrets and variables → Actions):
+#   FTP_HOST       Hosting server IP or hostname
+#   FTP_USERNAME   cPanel / FTP username
+#   FTP_PASSWORD   cPanel / FTP password
+# Optional secrets:
+#   FTP_SERVER_DIR Remote theme folder (default: public_html/wp-content/themes/acm-atlanta/)
+#   FTP_PROTOCOL   ftps (default) or ftp if the server does not support TLS
+
+name: Deploy theme
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'acm-atlanta/app/public/wp-content/themes/acm-atlanta/**'
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Upload theme via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.6
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ${{ secrets.FTP_PROTOCOL || 'ftps' }}
+          local-dir: ./acm-atlanta/app/public/wp-content/themes/acm-atlanta/
+          server-dir: ${{ secrets.FTP_SERVER_DIR || 'public_html/wp-content/themes/acm-atlanta/' }}
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            **/.DS_Store
