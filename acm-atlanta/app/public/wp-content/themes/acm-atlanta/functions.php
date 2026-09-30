@@ -123,6 +123,19 @@ function acm_atlanta_setup() {
 add_action( 'after_setup_theme', 'acm_atlanta_setup' );
 
 
+// ── Favicon (AI icon) — only when no Site Icon is set in the Customizer ──
+function acm_atlanta_favicon() {
+    if ( has_site_icon() ) {
+        return;
+    }
+    $dir = get_template_directory_uri() . '/images/logo';
+    echo '<link rel="icon" type="image/svg+xml" href="' . esc_url( $dir . '/acm-atlanta-ai-icon.svg' ) . '"/>' . "\n";
+    echo '<link rel="icon" type="image/png" sizes="32x32" href="' . esc_url( $dir . '/acm-atlanta-ai-icon-32.png' ) . '"/>' . "\n";
+    echo '<link rel="apple-touch-icon" href="' . esc_url( $dir . '/acm-atlanta-ai-icon-180.png' ) . '"/>' . "\n";
+}
+add_action( 'wp_head', 'acm_atlanta_favicon' );
+
+
 // ── Events Custom Post Type ───────────────────────────────────────
 function acm_atlanta_register_events() {
     register_post_type( 'acm_event', [

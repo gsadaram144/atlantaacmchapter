@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" role="img" aria-labelledby="t d">
+  <title id="t">ACM Atlanta – AI &amp; Superintelligence</title>
+  <desc id="d">A neural network rising into the letter A, culminating in a gold node that represents the growth of AI toward superintelligence.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#001A3A"/>
+      <stop offset="0.55" stop-color="#002855"/>
+      <stop offset="1" stop-color="#0062A3"/>
+    </linearGradient>
+    <linearGradient id="rise" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0" stop-color="#5FB4F0"/>
+      <stop offset="1" stop-color="#F7A800"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#FFD66B" stop-opacity="0.9"/>
+      <stop offset="0.45" stop-color="#F7A800" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#F7A800" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="128" height="128" rx="28" fill="url(#bg)"/>
+
+  <!-- faint circuit grid -->
+  <g stroke="#FFFFFF" stroke-opacity="0.06" stroke-width="1">
+    <path d="M0 32H128M0 64H128M0 96H128M32 0V128M64 0V128M96 0V128"/>
+  </g>
+
+  <!-- halo + orbit around the apex (superintelligence) -->
+  <circle cx="64" cy="27" r="22" fill="url(#glow)"/>
+  <ellipse cx="64" cy="27" rx="17" ry="6.5" fill="none" stroke="#F7A800" stroke-opacity="0.7"
+           stroke-width="1.6" stroke-dasharray="22 6" transform="rotate(-18 64 27)"/>
+
+  <!-- inner network connections -->
+  <g stroke="#9CCFF5" stroke-opacity="0.45" stroke-width="1.4" stroke-linecap="round">
+    <path d="M30 101L64 76M64 101L42 76M64 101L86 76M98 101L64 76
+             M42 76L75 52M86 76L53 52M64 76L53 52M64 76L75 52
+             M42 76L64 76L86 76"/>
+  </g>
+
+  <!-- the rising "A": outer edges of the network -->
+  <path d="M30 101L42 76L53 52L64 27L75 52L86 76L98 101" fill="none" stroke="url(#rise)"
+        stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M53 52H75" stroke="url(#rise)" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- nodes: grow in size and warm in color as they rise -->
+  <g fill="#5FB4F0">
+    <circle cx="30" cy="101" r="4.2"/>
+    <circle cx="64" cy="101" r="4.2"/>
+    <circle cx="98" cy="101" r="4.2"/>
+  </g>
+  <g fill="#A9D8F7">
+    <circle cx="42" cy="76" r="4.8"/>
+    <circle cx="64" cy="76" r="4.8"/>
+    <circle cx="86" cy="76" r="4.8"/>
+  </g>
+  <g fill="#FFD66B">
+    <circle cx="53" cy="52" r="5.4"/>
+    <circle cx="75" cy="52" r="5.4"/>
+  </g>
+  <circle cx="64" cy="27" r="8" fill="#F7A800"/>
+  <circle cx="64" cy="27" r="3.4" fill="#FFFFFF"/>
+</svg>
