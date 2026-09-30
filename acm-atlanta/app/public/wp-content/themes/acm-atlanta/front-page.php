@@ -123,14 +123,19 @@ get_header(); ?>
 
         <div class="events-list">
             <?php
-            // Query upcoming events (posts with future dates or tagged as events)
-            // For now using placeholder posts — replace with ACM Events custom post type later
+            // Next 3 upcoming events, soonest first
             $events = new WP_Query([
                 'post_type'      => 'acm_event',
                 'posts_per_page' => 3,
                 'meta_key'       => '_event_date',
                 'orderby'        => 'meta_value',
-                'order'          => 'DESC',
+                'order'          => 'ASC',
+                'meta_query'     => [[
+                    'key'     => '_event_date',
+                    'value'   => current_time( 'Y-m-d' ),
+                    'compare' => '>=',
+                    'type'    => 'DATE',
+                ]],
             ]);
 
             if ($events->have_posts()) :
