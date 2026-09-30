@@ -322,7 +322,7 @@ The workflow reads credentials from GitHub Secrets — never stored in the repo.
 
 | Secret Name | What it stores |
 |---|---|
-| `FTP_HOST` | `<YOUR-HOSTING-IP>` |
+| `FTP_HOST` | `atlanta.hosting4.acm.org` |
 | `FTP_USERNAME` | `atlantahosting` |
 | `FTP_PASSWORD` | cPanel FTP password |
 | `FTP_SERVER_DIR` | *(optional)* Remote theme folder — defaults to `public_html/wp-content/themes/acm-atlanta/` |
@@ -601,8 +601,8 @@ All design tokens are defined in `css/variables.css`. Change a value there and i
 |---|---|---|
 | Live site | https://atlanta.acm.org | Public |
 | WordPress Admin | https://atlanta.acm.org/wp-admin | WP credentials |
-| cPanel | https://<YOUR-HOSTING-IP>:2083 | Hosting admin |
-| FTP/SFTP Host | `<YOUR-HOSTING-IP>` | Port 21 (FTP) |
+| cPanel | https://atlanta.hosting4.acm.org:2083 | Hosting admin |
+| FTP/SFTP Host | `atlanta.hosting4.acm.org` | Port 21 (FTP) |
 | FTP Username | `atlantahosting` | Same as cPanel |
 | ACM Tech Support | technicalsupport@acm.org | For hosting issues |
 | GitHub Repo | https://github.com/gsadaram144/atlantaacmchapter | Request access from chapter chair |
@@ -633,9 +633,9 @@ public_html/wp-content/themes/acm-atlanta/
 
 Your credentials in `sftp.json` are wrong. Double-check `username` and `password` with the chapter chair.
 
-### Cannot access atlanta.hosting.acm.org
+### Cannot access the hosting server
 
-This hostname does not resolve via public DNS. Use the IP address `<YOUR-HOSTING-IP>` directly for cPanel and SFTP access.
+The hosting server is `atlanta.hosting4.acm.org`. If that hostname does not resolve from your network, ask ACM Tech Support (technicalsupport@acm.org) for the server's IP address and use it directly for cPanel and SFTP access.
 
 ### Local site not loading at acm-atlanta.local
 
