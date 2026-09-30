@@ -4,6 +4,7 @@
  */
 
 require_once get_template_directory() . '/inc/event-registrations.php';
+require_once get_template_directory() . '/inc/site-setup.php';
 
 // ── Asset Versioning ──────────────────────────────────────────────
 // Uses the file's last-modified time as its version so browsers pick up
