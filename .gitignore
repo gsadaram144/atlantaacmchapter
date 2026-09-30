@@ -22,3 +22,4 @@ acm-atlanta/app/public/readme.html
 # OS / editor
 .DS_Store
 node_modules/
+preview/
