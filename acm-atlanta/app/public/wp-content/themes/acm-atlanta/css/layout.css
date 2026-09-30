@@ -32,7 +32,7 @@ img { max-width: 100%; height: auto; display: block; }
     display: flex;
     align-items: center;
     overflow: hidden;
-    background-color: var(--blue-dark);
+    background: var(--gradient-hero);
 }
 .hero-bg {
     position: absolute;
@@ -46,9 +46,9 @@ img { max-width: 100%; height: auto; display: block; }
     inset: 0;
     background: linear-gradient(
         90deg,
-        rgba(0, 30, 60, 0.88) 0%,
-        rgba(0, 30, 60, 0.72) 50%,
-        rgba(0, 30, 60, 0.28) 100%
+        rgba(10, 27, 69, 0.90) 0%,
+        rgba(14, 58, 156, 0.70) 55%,
+        rgba(21, 96, 232, 0.25) 100%
     );
 }
 .hero-content {
@@ -105,7 +105,7 @@ img { max-width: 100%; height: auto; display: block; }
     align-items: start;
 }
 .membership-card {
-    background: var(--blue-dark);
+    background: var(--gradient-hero);
     border-radius: var(--radius-lg);
     padding: 44px var(--space-8);
     text-align: center;
@@ -194,7 +194,7 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* ── Page Hero (inner pages) ── */
 .page-hero {
-    background: var(--blue-dark);
+    background: var(--gradient-hero);
     padding: var(--space-16) var(--space-8);
     text-align: center;
 }
@@ -378,12 +378,15 @@ img { max-width: 100%; height: auto; display: block; }
 .about-acm-links    { display: flex; gap: var(--space-3); flex-wrap: wrap; margin-top: var(--space-6); }
 
 .section-cta {
-    background: var(--blue-dark);
+    background: var(--gradient-hero);
     text-align: center;
 }
 .section-cta .eyebrow { color: var(--gold); }
 .section-cta h2 { color: var(--white); font-size: var(--text-xl); margin-bottom: var(--space-4); }
 .section-cta p  { color: rgba(255,255,255,0.75); font-size: var(--text-md); max-width: 580px; margin: 0 auto var(--space-8); line-height: 1.7; }
+/* Blue buttons would blend into the blue gradient — use amber instead */
+.section-cta .btn-blue       { background: var(--gold); border-color: var(--gold); color: var(--blue-dark); }
+.section-cta .btn-blue:hover { background: var(--gold-dark); border-color: var(--gold-dark); color: var(--blue-dark); }
 .cta-btns { display: flex; gap: var(--space-4); justify-content: center; flex-wrap: wrap; }
 
 .btn-outline       { border: 2px solid var(--blue); color: var(--blue); background: transparent; padding: var(--space-3) var(--space-6); border-radius: var(--radius); font-family: var(--font-sans); font-weight: 700; font-size: var(--text-sm); text-decoration: none; transition: background 0.2s, color 0.2s; }
@@ -455,10 +458,10 @@ img { max-width: 100%; height: auto; display: block; }
     overflow: hidden;
 }
 .role-btn-avatar img { width: 100%; height: 100%; object-fit: cover; }
-.avatar-A { background: linear-gradient(135deg, #002855, #0062A3); }
-.avatar-B { background: linear-gradient(135deg, #0062A3, #1a7cbf); }
-.avatar-C { background: linear-gradient(135deg, #004a7c, #0062A3); }
-.avatar-D { background: linear-gradient(135deg, #003566, #0062A3); }
+.avatar-A { background: linear-gradient(135deg, #0A1B45, #1560E8); }
+.avatar-B { background: linear-gradient(135deg, #1560E8, #3A9BFF); }
+.avatar-C { background: linear-gradient(135deg, #0E3A9C, #5CC8FF); }
+.avatar-D { background: linear-gradient(135deg, #0A1B45, #0E3A9C); }
 
 .role-btn-name  { font-size: 13px; font-weight: 700; color: var(--blue-dark); text-align: center; line-height: 1.2; transition: color 0.2s; }
 .role-btn-title { font-size: 11px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--blue); text-align: center; transition: color 0.2s; }
@@ -480,7 +483,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .officer-identity {
-    background: var(--blue-dark);
+    background: var(--gradient-hero);
     padding: 48px 32px;
     display: flex; flex-direction: column;
     align-items: center; text-align: center;
@@ -488,7 +491,7 @@ img { max-width: 100%; height: auto; display: block; }
     position: relative; overflow: hidden;
 }
 .officer-identity::before { content: ''; position: absolute; bottom: -60px; right: -60px; width: 200px; height: 200px; border-radius: 50%; background: rgba(255,255,255,0.04); }
-.officer-identity::after  { content: ''; position: absolute; top: -40px; left: -40px; width: 150px; height: 150px; border-radius: 50%; background: rgba(247,168,0,0.07); }
+.officer-identity::after  { content: ''; position: absolute; top: -40px; left: -40px; width: 150px; height: 150px; border-radius: 50%; background: rgba(255,178,30,0.10); }
 
 .identity-avatar {
     width: 110px; height: 110px;
@@ -571,9 +574,9 @@ img { max-width: 100%; height: auto; display: block; }
 .membership-hero p { max-width: 620px; }
 
 .membership-notice {
-    background: #FEF9E7;
+    background: var(--gold-light);
     border-top: 3px solid var(--gold);
-    border-bottom: 1px solid #F0D080;
+    border-bottom: 1px solid #FFD98A;
     padding: var(--space-5) var(--space-8);
 }
 .membership-notice-inner {

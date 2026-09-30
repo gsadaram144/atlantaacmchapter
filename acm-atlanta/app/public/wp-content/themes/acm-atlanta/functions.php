@@ -296,6 +296,12 @@ function acm_atlanta_default_officers() {
             'name'     => 'Gangadhar Sadaram',
             'linkedin' => 'https://www.linkedin.com/in/gangadhar-sadaram-00b0b0159/',
             'photo'    => 'officer-chair-gangadhar-sadaram.jpg', // file in the theme's images/ folder
+            // Bio shown in the profile panel — basic HTML allowed (<p>, <strong>, <em>, <a>)
+            'bio'      => '<p>Gangadhar Sadaram is an accomplished <strong>DevOps and Cloud Engineering leader with more than 12 years of progressive industry experience</strong>, currently serving as a <strong>Vice President Software Engineer at Bank of America</strong>. His expertise encompasses <strong>enterprise DevOps, cloud-native architecture, Kubernetes/OpenShift, CI/CD automation, infrastructure automation, application modernization, and large-scale engineering platforms</strong>.</p>
+
+<p>Throughout his career, he has contributed to the design and implementation of <strong>scalable, resilient, and highly automated technology solutions supporting complex enterprise environments</strong>, with a particular focus on improving software delivery, operational efficiency, reliability, and engineering productivity. His technical contributions include developing reusable automation frameworks and modern engineering solutions that address complex technology challenges and enable broader adoption across enterprise applications.</p>
+
+<p>In his current leadership role, he applies his specialized technical expertise to critical financial-services technology initiatives, collaborating with senior engineering, architecture, and business stakeholders to deliver robust and innovative solutions. His sustained record of technical contributions, leadership, and expertise in modern DevOps and cloud engineering demonstrates his ability to make <strong>significant contributions to enterprise technology and the broader field of software engineering</strong>.</p>',
         ],
     ];
 
@@ -311,7 +317,7 @@ function acm_atlanta_default_officers() {
             'duties'      => $roles[ $role ],
             'email'       => $person['email'] ?? '',
             'linkedin'    => $person['linkedin'] ?? '',
-            'bio'         => '',
+            'bio'         => $person['bio'] ?? '',
             'photo'       => ! empty( $person['photo'] ) ? get_template_directory_uri() . '/images/' . $person['photo'] : '',
             'initial'     => strtoupper( mb_substr( $name ?: $role, 0, 1 ) ),
             'placeholder' => $name === '',

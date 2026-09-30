@@ -6,22 +6,28 @@
 
 :root {
 
-    /* ── Brand Colors ── */
-    --blue:         #0062A3;
-    --blue-dark:    #002855;
-    --blue-light:   #EEF5FB;
-    --gold:         #F7A800;
-    --gold-dark:    #D4920A;
-    --gold-light:   #FEF3D0;
+    /* ── Brand Colors ── (drawn from the chapter logo) */
+    --blue:         #1560E8;   /* vivid royal blue — links, buttons, accents */
+    --blue-dark:    #0A1B45;   /* deep navy — headings, dark sections */
+    --blue-deep:    #071234;   /* darkest navy — footer */
+    --blue-light:   #EDF4FF;   /* light blue tint — backgrounds, chips */
+    --sky:          #5CC8FF;   /* bright sky blue — accents on dark backgrounds */
+    --gold:         #FFB21E;   /* glowing amber — primary call to action */
+    --gold-dark:    #FFC94D;   /* amber hover (lighter, glows on hover) */
+    --gold-light:   #FFF4D9;   /* soft amber tint — notices */
+
+    /* ── Gradients ── */
+    --gradient-hero:   linear-gradient(135deg, #0A1B45 0%, #0E3A9C 55%, #1560E8 100%);
+    --gradient-accent: linear-gradient(90deg, #1560E8 0%, #5CC8FF 55%, #FFB21E 100%);
 
     /* ── Neutral Colors ── */
     --white:        #FFFFFF;
-    --gray-50:      #F5F9FD;
-    --gray-100:     #EEF5FB;
-    --gray-200:     #C8DFF0;
-    --gray-400:     #8DA3B8;
-    --gray-600:     #556070;
-    --gray-900:     #1C2B3A;
+    --gray-50:      #F5F9FF;
+    --gray-100:     #EDF4FF;
+    --gray-200:     #D3E2F7;
+    --gray-400:     #8A9BB8;
+    --gray-600:     #4A5B78;
+    --gray-900:     #14213D;
 
     /* ── Semantic Colors ── */
     --text:         var(--gray-900);
@@ -66,9 +72,9 @@
     --radius-lg:    10px;
 
     /* ── Shadows ── */
-    --shadow-sm:    0 2px 8px rgba(0, 40, 85, 0.07);
-    --shadow:       0 4px 16px rgba(0, 40, 85, 0.10);
-    --shadow-lg:    0 10px 36px rgba(0, 40, 85, 0.13);
+    --shadow-sm:    0 2px 8px rgba(10, 27, 69, 0.07);
+    --shadow:       0 6px 20px rgba(21, 96, 232, 0.12);
+    --shadow-lg:    0 14px 40px rgba(21, 96, 232, 0.18);
 
     /* ── Transitions ── */
     --transition:   0.15s ease;

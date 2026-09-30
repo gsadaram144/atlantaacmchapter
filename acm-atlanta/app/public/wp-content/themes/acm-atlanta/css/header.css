@@ -4,7 +4,8 @@
 
 .site-header {
     background: var(--white);
-    border-bottom: 3px solid var(--blue);
+    border-bottom: 3px solid transparent;
+    border-image: var(--gradient-accent) 1;
     position: sticky;
     top: 0;
     z-index: 200;
