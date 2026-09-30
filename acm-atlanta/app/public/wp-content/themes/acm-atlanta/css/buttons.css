@@ -30,7 +30,7 @@
     border-color: var(--gold-dark);
     color: var(--blue-dark);
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(247, 168, 0, 0.35);
+    box-shadow: 0 8px 24px rgba(255, 178, 30, 0.45);
 }
 
 /* Blue — Secondary CTA */

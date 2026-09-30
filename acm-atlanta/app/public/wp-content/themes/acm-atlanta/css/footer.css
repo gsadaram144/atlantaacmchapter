@@ -3,7 +3,7 @@
  */
 
 .site-footer {
-    background: var(--blue-dark);
+    background: var(--blue-deep);
     color: rgba(255, 255, 255, 0.75);
     padding: var(--space-12) var(--space-8) var(--space-8);
     font-family: var(--font-sans);
@@ -66,7 +66,7 @@
 }
 .social-btn:hover {
     border-color: var(--gold);
-    background: rgba(247, 168, 0, 0.12);
+    background: rgba(255, 178, 30, 0.14);
 }
 .social-btn img {
     width: 18px;

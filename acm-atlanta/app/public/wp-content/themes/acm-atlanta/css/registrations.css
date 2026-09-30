@@ -65,7 +65,7 @@
 .reg-field input:focus {
     outline: none;
     border-color: var(--blue);
-    box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.12);
+    box-shadow: 0 0 0 3px rgba(21, 96, 232, 0.18);
 }
 
 .reg-actions {

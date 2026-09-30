@@ -567,13 +567,22 @@ All design tokens are defined in `css/variables.css`. Change a value there and i
 
 ### Brand Colors
 
+The palette is drawn from the chapter logo — deep navy, vivid royal blue, sky-blue nodes and a glowing amber.
+
 | Variable | Value | Usage |
 |---|---|---|
-| `--blue` | `#0062A3` | Primary blue, links, accents |
-| `--blue-dark` | `#002855` | Dark navy, header text, footer bg |
-| `--blue-light` | `#EEF5FB` | Light background sections |
-| `--gold` | `#F7A800` | CTAs, highlights, eyebrows |
-| `--gold-dark` | `#D4920A` | Gold hover state |
+| `--blue` | `#1560E8` | Primary blue — links, buttons, accents |
+| `--blue-dark` | `#0A1B45` | Deep navy — headings, dark cards |
+| `--blue-deep` | `#071234` | Darkest navy — footer |
+| `--blue-light` | `#EDF4FF` | Light blue tint — section backgrounds, chips |
+| `--sky` | `#5CC8FF` | Bright sky blue — accents on dark backgrounds |
+| `--gold` | `#FFB21E` | Amber — primary call-to-action buttons, eyebrows |
+| `--gold-dark` | `#FFC94D` | Amber hover state |
+| `--gold-light` | `#FFF4D9` | Soft amber — notices |
+| `--gradient-hero` | navy → royal blue | Hero, page banners, call-to-action sections, officer and membership cards |
+| `--gradient-accent` | blue → sky → amber | Stripe under the header |
+
+All text/background pairs meet WCAG AA contrast (4.5:1 or better).
 
 ### Typography
 
