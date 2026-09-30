@@ -3,7 +3,7 @@
 Official website for the **ACM Atlanta Professional Chapter**, serving Atlanta and the greater metro Atlanta technology community.
 
 🌐 **Live site:** [https://atlanta.acm.org](https://atlanta.acm.org)  
-📁 **Repository:** [https://github.com/<your-org>/acm-atlanta-website](https://github.com/<your-org>/acm-atlanta-website)
+📁 **Repository:** [https://github.com/gsadaram144/atlantaacmchapter](https://github.com/gsadaram144/atlantaacmchapter)
 
 ---
 
@@ -97,7 +97,7 @@ Now pull the project code directly into that same Local site folder:
 ```bash
 cd ~/Local\ Sites/acm-atlanta/
 git init
-git remote add origin git@github.com:<your-org>/acm-atlanta-website.git
+git remote add origin git@github.com:gsadaram144/atlantaacmchapter.git
 git pull origin main
 ```
 
@@ -302,13 +302,14 @@ Live site updated automatically ✅
 ```
 
 You can watch deployments run in real time under the **Actions** tab on GitHub:
-`https://github.com/<your-org>/acm-atlanta-website/actions`
+`https://github.com/gsadaram144/atlantaacmchapter/actions`
 
 ### How It Works
 
-The workflow lives at `.github/workflows/deploy.yml` and uses [SamKirkland/FTP-Deploy-Action@v4.3.6](https://github.com/SamKirkland/FTP-Deploy-Action). It:
+The workflow lives at `.github/workflows/deploy.yml` (in the repository root, one level above this README) and uses [SamKirkland/FTP-Deploy-Action@v4.3.6](https://github.com/SamKirkland/FTP-Deploy-Action). It:
 
 - Triggers **only on pushes to `main`** — branch pushes (PRs in progress) are ignored
+- Can also be run manually from **Actions → Deploy theme → Run workflow**
 - Triggers **only when theme files change** — pushes to README, CONTRIBUTING, etc. skip deployment
 - Uploads only the **diff** (changed files only), not the full theme on every run
 - Excludes `.git`, `.DS_Store`, and `node_modules` automatically
@@ -321,9 +322,24 @@ The workflow reads credentials from GitHub Secrets — never stored in the repo.
 
 | Secret Name | What it stores |
 |---|---|
-| `FTP_HOST` | `<YOUR-HOSTING-IP>` |
+| `FTP_HOST` | `atlanta.hosting4.acm.org` |
 | `FTP_USERNAME` | `atlantahosting` |
 | `FTP_PASSWORD` | cPanel FTP password |
+| `FTP_SERVER_DIR` | *(optional)* Remote theme folder — defaults to `public_html/wp-content/themes/acm-atlanta/` |
+| `FTP_PROTOCOL` | *(optional)* `ftps` (default) or `ftp` if the server doesn't support TLS |
+
+### First-Time Hosting Setup
+
+Do these once before the first automated deploy:
+
+1. **Request chapter hosting from ACM** — email ACM Tech Support (technicalsupport@acm.org) to get the `atlanta.acm.org` subdomain, WordPress install, and cPanel/FTP credentials for the chapter.
+2. **Install WordPress** on the hosting account (cPanel → Softaculous/WordPress installer) if ACM hasn't already.
+3. **Add the GitHub Secrets** listed above.
+4. **Run the first deploy** — Actions → Deploy theme → Run workflow.
+5. **Activate the theme** — WP Admin → Appearance → Themes → ACM Atlanta → Activate.
+6. **Create the pages** with slugs `about`, `events`, `officers`, `membership`, `contact` and set a static homepage (Settings → Reading).
+7. **Upload the logo and icon images** — the header, footer and homepage banner load images from `https://atlanta.acm.org/wp-content/uploads/2026/03/…`. Upload those files to the Media Library and make sure the URLs in `header.php`, `footer.php`, `front-page.php` and `page-about.php` match where WordPress stored them.
+8. **Add the officers** (see [Managing Officers](#managing-officers)).
 
 ### After Deploying
 
@@ -451,10 +467,10 @@ Officer profiles are managed through a custom **Officers** post type in WP Admin
 
 | Field | Example | Notes |
 |---|---|---|
-| Role / Title | `Chapter President` | Required — shown as the role badge |
+| Role / Title | `Chair` | Required — shown as the role badge. Pick from the suggestions (Chair, Vice Chair, Secretary, Treasurer, Membership Chair, Program Chair) or type a custom title |
 | Display Order | `1` | Controls left-to-right order on the Officers page (1 = first) |
-| Duties & Responsibilities | `Leads the chapter, chairs meetings...` | Shown in the detail panel |
-| Email Address | `president@atlanta.acm.org` | Shown as a mailto button |
+| Duties & Responsibilities | `Leads the chapter, chairs officer meetings...` | Shown in the detail panel |
+| Email Address | `chair@atlanta.acm.org` | Shown as a mailto button |
 | LinkedIn URL | `https://linkedin.com/in/...` | Shown as a LinkedIn button |
 
 5. Set the **Featured Image** (right sidebar) — this becomes the officer's photo
@@ -465,10 +481,18 @@ Officer profiles are managed through a custom **Officers** post type in WP Admin
 #### Display Order
 
 Set **Display Order** to control the sequence of buttons on the Officers page:
-- President → `1`
-- Vice President → `2`
+- Chair → `1`
+- Vice Chair → `2`
 - Secretary → `3`
 - Treasurer → `4`
+- Membership Chair → `5`
+- Program Chair → `6`
+
+#### Before Officers Are Added
+
+Until at least one officer is published, the Officers page shows a default roster of the core positions (Chair, Vice Chair, Secretary, Treasurer). Names for these positions are set in the `$appointed` list in `acm_atlanta_default_officers()` in `functions.php`; any position without a name shows as **To Be Announced**. The standard role names and default responsibilities live in `acm_atlanta_officer_roles()` in the same file.
+
+> ⚠️ As soon as one officer is published in WP Admin, the default roster is no longer shown — so when you start managing officers in WP Admin, add **every** officer there (including the Chair).
 
 ---
 
@@ -490,6 +514,8 @@ Social links are hardcoded in `footer.php`. To update them:
 2. Find the `$socials` array near the top of the footer section
 3. Replace `'#'` with the actual social media URL for each platform
 4. Save and deploy
+
+> Platforms left as `'#'` are hidden automatically — an icon only appears once it has a real URL. The email icon links to `acmchapteratlanta@gmail.com`.
 
 ---
 
@@ -575,11 +601,11 @@ All design tokens are defined in `css/variables.css`. Change a value there and i
 |---|---|---|
 | Live site | https://atlanta.acm.org | Public |
 | WordPress Admin | https://atlanta.acm.org/wp-admin | WP credentials |
-| cPanel | https://<YOUR-HOSTING-IP>:2083 | Hosting admin |
-| FTP/SFTP Host | `<YOUR-HOSTING-IP>` | Port 21 (FTP) |
+| cPanel | https://atlanta.hosting4.acm.org:2083 | Hosting admin |
+| FTP/SFTP Host | `atlanta.hosting4.acm.org` | Port 21 (FTP) |
 | FTP Username | `atlantahosting` | Same as cPanel |
 | ACM Tech Support | technicalsupport@acm.org | For hosting issues |
-| GitHub Repo | https://github.com/<your-org>/acm-atlanta-website | Request access from chapter chair |
+| GitHub Repo | https://github.com/gsadaram144/atlantaacmchapter | Request access from chapter chair |
 
 ---
 
@@ -607,9 +633,9 @@ public_html/wp-content/themes/acm-atlanta/
 
 Your credentials in `sftp.json` are wrong. Double-check `username` and `password` with the chapter chair.
 
-### Cannot access atlanta.hosting.acm.org
+### Cannot access the hosting server
 
-This hostname does not resolve via public DNS. Use the IP address `<YOUR-HOSTING-IP>` directly for cPanel and SFTP access.
+The hosting server is `atlanta.hosting4.acm.org`. If that hostname does not resolve from your network, ask ACM Tech Support (technicalsupport@acm.org) for the server's IP address and use it directly for cPanel and SFTP access.
 
 ### Local site not loading at acm-atlanta.local
 
@@ -631,7 +657,7 @@ cat ~/.ssh/id_ed25519.pub
 ```
 Copy the output and add it to **GitHub → Settings → SSH and GPG keys → New SSH key**. Then:
 ```bash
-git remote set-url origin git@github.com:<your-org>/acm-atlanta-website.git
+git remote set-url origin git@github.com:gsadaram144/atlantaacmchapter.git
 ```
 
 ---
@@ -653,5 +679,5 @@ We welcome contributions from all chapter members! Before making changes, please
 ## Need Help?
 
 - **Hosting issues:** Email `technicalsupport@acm.org`
-- **Site/code issues:** Open an issue on [GitHub](https://github.com/<your-org>/acm-atlanta-website/issues)
+- **Site/code issues:** Open an issue on [GitHub](https://github.com/gsadaram144/atlantaacmchapter/issues)
 - **General questions:** Contact the chapter chair

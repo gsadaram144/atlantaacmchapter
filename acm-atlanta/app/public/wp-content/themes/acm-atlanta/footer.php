@@ -17,15 +17,17 @@
                 </p>
                 <div class="social-row">
                     <?php
+                    // Add a profile URL to show that icon; links left as '#' are hidden
                     $socials = [
                         'linkedin'  => ['url' => '#', 'label' => 'LinkedIn',    'img' => 'https://atlanta.acm.org/wp-content/uploads/2026/03/linkedin.svg'],
                         'twitter'   => ['url' => '#', 'label' => 'Twitter / X', 'img' => 'https://atlanta.acm.org/wp-content/uploads/2026/03/twitter.svg'],
                         'facebook'  => ['url' => '#', 'label' => 'Facebook',    'img' => 'https://atlanta.acm.org/wp-content/uploads/2026/03/facebook.svg'],
                         'youtube'   => ['url' => '#', 'label' => 'YouTube',     'img' => 'https://atlanta.acm.org/wp-content/uploads/2026/03/youtube.svg'],
                         'instagram' => ['url' => '#', 'label' => 'Instagram',   'img' => 'https://atlanta.acm.org/wp-content/uploads/2026/03/instagram.svg'],
-                        'mail'      => ['url' => 'mailto:info@atlanta.acm.org', 'label' => 'Email', 'img' => 'https://atlanta.acm.org/wp-content/uploads/2026/03/mail.svg'],
+                        'mail'      => ['url' => 'mailto:acmchapteratlanta@gmail.com', 'label' => 'Email', 'img' => 'https://atlanta.acm.org/wp-content/uploads/2026/03/mail.svg'],
                     ];
-                    foreach ($socials as $name => $data) : ?>
+                    foreach ($socials as $name => $data) :
+                        if ( $data['url'] === '#' ) continue; ?>
                         <a href="<?php echo esc_url($data['url']); ?>"
                            class="social-btn"
                            title="<?php echo esc_attr($data['label']); ?>"

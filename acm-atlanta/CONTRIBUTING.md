@@ -106,7 +106,7 @@ git push origin feature/about-page
 
 ### Step 6 — Open a Pull Request
 
-1. Go to [https://github.com/<your-org>/acm-atlanta-website](https://github.com/<your-org>/acm-atlanta-website)
+1. Go to [https://github.com/gsadaram144/atlantaacmchapter](https://github.com/gsadaram144/atlantaacmchapter)
 2. GitHub will show a yellow banner: **"Compare & pull request"** — click it
 3. If you don't see the banner, click **"Pull requests"** → **"New pull request"**
 4. Set:
@@ -309,5 +309,5 @@ These files and folders are excluded from version control for good reason — do
 ## Questions?
 
 - **General questions:** Contact the chapter chair
-- **Bug reports:** [Open a GitHub Issue](https://github.com/<your-org>/acm-atlanta-website/issues)
+- **Bug reports:** [Open a GitHub Issue](https://github.com/gsadaram144/atlantaacmchapter/issues)
 - **Hosting / server issues:** Email `technicalsupport@acm.org`

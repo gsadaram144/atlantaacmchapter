@@ -9,19 +9,21 @@ document.addEventListener('DOMContentLoaded', function () {
     const navMenu = document.querySelector('.site-nav ul');
 
     if (toggle && navMenu) {
+        const nav = toggle.closest('.site-header').querySelector('.site-nav');
+
         toggle.addEventListener('click', function () {
-            const isOpen = navMenu.style.display === 'flex';
-            navMenu.style.display = isOpen ? 'none' : 'flex';
-            navMenu.style.flexDirection = 'column';
-            navMenu.style.position = 'absolute';
-            navMenu.style.top = '72px';
-            navMenu.style.left = '0';
-            navMenu.style.right = '0';
-            navMenu.style.background = '#fff';
-            navMenu.style.padding = '16px 24px';
-            navMenu.style.boxShadow = '0 8px 24px rgba(0,40,85,0.12)';
-            navMenu.style.zIndex = '100';
-            toggle.setAttribute('aria-expanded', !isOpen);
+            const isOpen = nav.classList.toggle('is-open');
+            toggle.classList.toggle('is-open', isOpen);
+            toggle.setAttribute('aria-expanded', isOpen);
+        });
+
+        // Close the menu after a link is tapped
+        navMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function () {
+                nav.classList.remove('is-open');
+                toggle.classList.remove('is-open');
+                toggle.setAttribute('aria-expanded', 'false');
+            });
         });
     }
 

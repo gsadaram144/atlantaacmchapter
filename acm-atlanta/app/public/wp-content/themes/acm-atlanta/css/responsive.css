@@ -25,6 +25,32 @@
     .logo-desktop { display: none; }
     .logo-tablet  { display: block; }
     .logo-mobile  { display: none; }
+
+    /* Collapse nav into the hamburger menu */
+    .nav-toggle  { display: flex; }
+    .site-nav ul { display: none; }
+    .site-nav.is-open ul {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: var(--space-1);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--white);
+        padding: var(--space-4) var(--space-6);
+        border-bottom: 3px solid var(--blue);
+        box-shadow: var(--shadow-lg);
+        z-index: 100;
+    }
+    .site-nav.is-open a { display: block; padding: var(--space-3); }
+    .site-nav .nav-cta { margin-left: 0; text-align: center; }
+
+    /* Hamburger turns into an X while open */
+    .nav-toggle.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-toggle.is-open span:nth-child(2) { opacity: 0; }
+    .nav-toggle.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 }
 
 /* ── Mobile: 640px and below ── */
@@ -60,10 +86,4 @@
     .logo-desktop { display: none; }
     .logo-tablet  { display: none; }
     .logo-mobile  { display: block; }
-}
-
-/* ── Small Mobile: 480px and below ── */
-@media (max-width: 480px) {
-    .site-nav ul { display: none; }
-    .nav-toggle  { display: flex; }
 }

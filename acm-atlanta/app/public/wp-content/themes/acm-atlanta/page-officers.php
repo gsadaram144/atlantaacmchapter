@@ -35,6 +35,12 @@ if ( $officers->have_posts() ) {
     wp_reset_postdata();
 }
 
+// Until officers are published in WP Admin, show the default roster
+$showing_placeholders = empty( $officer_list );
+if ( $showing_placeholders ) {
+    $officer_list = acm_atlanta_default_officers();
+}
+
 // Gradient classes cycle through 4 options
 $gradients = [ 'avatar-A', 'avatar-B', 'avatar-C', 'avatar-D' ];
 ?>
@@ -73,7 +79,7 @@ $gradients = [ 'avatar-A', 'avatar-B', 'avatar-C', 'avatar-D' ];
                             <?php echo esc_html($o['initial']); ?>
                         <?php endif; ?>
                     </div>
-                    <span class="role-btn-name"><?php echo esc_html($display_name); ?></span>
+                    <span class="role-btn-name"><?php echo esc_html( empty( $o['placeholder'] ) ? $display_name : 'TBA' ); ?></span>
                     <span class="role-btn-title"><?php echo esc_html($o['title']); ?></span>
                 </button>
                 <?php endforeach; ?>
@@ -123,6 +129,10 @@ $gradients = [ 'avatar-A', 'avatar-B', 'avatar-C', 'avatar-D' ];
                 </div>
                 <?php endforeach; ?>
             </div>
+
+            <?php if ( $showing_placeholders ) : ?>
+                <p class="section-sub officers-note">Our officer team is being finalized — names and profiles will be announced soon.</p>
+            <?php endif; ?>
 
         <?php else : ?>
             <div class="events-empty">

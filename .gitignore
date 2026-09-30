@@ -1,0 +1,25 @@
+# Credentials — never commit
+.vscode/sftp.json
+**/.vscode/sftp.json
+wp-config.php
+.env
+
+# Local by Flywheel files
+acm-atlanta/conf/
+acm-atlanta/logs/
+
+# WordPress core, plugins and media (only the theme is versioned)
+acm-atlanta/app/public/wp-admin/
+acm-atlanta/app/public/wp-includes/
+acm-atlanta/app/public/wp-content/plugins/
+acm-atlanta/app/public/wp-content/uploads/
+acm-atlanta/app/public/wp-*.php
+acm-atlanta/app/public/index.php
+acm-atlanta/app/public/xmlrpc.php
+acm-atlanta/app/public/license.txt
+acm-atlanta/app/public/readme.html
+
+# OS / editor
+.DS_Store
+node_modules/
+preview/
