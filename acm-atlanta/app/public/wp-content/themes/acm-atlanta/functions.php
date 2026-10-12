@@ -303,6 +303,28 @@ function acm_atlanta_default_officers() {
 
 <p>In his current leadership role, he applies his specialized technical expertise to critical financial-services technology initiatives, collaborating with senior engineering, architecture, and business stakeholders to deliver robust and innovative solutions. His sustained record of technical contributions, leadership, and expertise in modern DevOps and cloud engineering demonstrates his ability to make <strong>significant contributions to enterprise technology and the broader field of software engineering</strong>.</p>',
         ],
+        'Vice Chair' => [
+            'name'     => 'Troy Hunt',
+            'linkedin' => 'https://www.linkedin.com/in/jtroyhunt/',
+            'photo'    => 'officer-vice-chair-troy-hunt.jpg',
+            'bio'      => '<p>Troy Hunt is a <strong>results-driven Senior Engineer</strong> with <strong>end-to-end ownership of enterprise CI/CD ecosystems, large-scale Linux and container platforms, and automation strategy</strong>. He has a proven record of <strong>improving reliability, accelerating delivery pipelines, and driving cross-team engineering initiatives</strong> in complex, multi-team enterprise environments.</p>
+
+<p>Troy has repeatedly succeeded in <strong>building resilient infrastructure</strong> and <strong>implementing observability at scale</strong>, and he is committed to <strong>mentoring engineers</strong> to raise organizational capability within fast-moving Agile delivery cycles.</p>
+
+<p><strong>Technical expertise:</strong> CI/CD pipeline architecture and delivery automation &middot; Enterprise Linux platform engineering &middot; Container platforms and orchestration &middot; Infrastructure automation strategy &middot; Site reliability and resilient infrastructure design &middot; Observability, monitoring and alerting at scale &middot; Cross-team engineering leadership and Agile delivery &middot; Technical mentoring</p>',
+        ],
+        'Secretary' => [
+            'name'     => 'Jaylen Davis',
+            'linkedin' => 'https://www.linkedin.com/in/jaylen-d-davis/',
+            'photo'    => 'officer-secretary-jaylen-davis.jpg',
+            'bio'      => '<p>Jaylen Davis is a <strong>Software Engineer</strong> passionate about <strong>solving complex problems, building reliable applications</strong>, and continuously learning in the evolving technology landscape.</p>
+
+<p>In his current role, Jaylen works on <strong>production applications end to end</strong>: <strong>triaging issues, identifying root causes, and delivering new features</strong>. He collaborates closely with <strong>DevOps and cross-functional teams in an Agile/Scrum environment</strong>, helping keep critical systems stable while they continue to evolve.</p>
+
+<p>He is driven by <strong>critical thinking and continuous improvement</strong>, and by building solutions that create meaningful impact.</p>
+
+<p><strong>Technical expertise:</strong> Python &middot; Pandas &middot; PySpark &middot; SQL &middot; Trino &middot; Linux/Unix &middot; C++ &middot; C &middot; Java &middot; Production support and root-cause analysis &middot; Agile/Scrum delivery &middot; AI-assisted development with GitHub Copilot</p>',
+        ],
     ];
 
     $default = [];
