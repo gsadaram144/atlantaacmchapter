@@ -130,7 +130,7 @@ $gradients = [ 'avatar-A', 'avatar-B', 'avatar-C', 'avatar-D' ];
                 <?php endforeach; ?>
             </div>
 
-            <?php if ( $showing_placeholders ) : ?>
+            <?php if ( $showing_placeholders && in_array( true, array_column( $officer_list, 'placeholder' ), true ) ) : ?>
                 <p class="section-sub officers-note">Our officer team is being finalized — names and profiles will be announced soon.</p>
             <?php endif; ?>
 
