@@ -306,6 +306,7 @@ function acm_atlanta_default_officers() {
         'Vice Chair' => [
             'name'     => 'Troy Hunt',
             'linkedin' => 'https://www.linkedin.com/in/jtroyhunt/',
+            'photo'    => 'officer-vice-chair-troy-hunt.jpg',
         ],
     ];
 
