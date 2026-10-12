@@ -325,6 +325,17 @@ function acm_atlanta_default_officers() {
 
 <p><strong>Technical expertise:</strong> Python &middot; Pandas &middot; PySpark &middot; SQL &middot; Trino &middot; Linux/Unix &middot; C++ &middot; C &middot; Java &middot; Production support and root-cause analysis &middot; Agile/Scrum delivery &middot; AI-assisted development with GitHub Copilot</p>',
         ],
+        'Treasurer' => [
+            'name'     => 'Arun Singaravelu',
+            'photo'    => 'officer-treasurer-arun-singaravelu.jpg',
+            'bio'      => '<p>Arun Singaravelu is an <strong>Enterprise Technology Leader and Solutions Expert</strong> with extensive experience driving <strong>large-scale digital transformation across enterprise CRM architectures, retail systems, and artificial intelligence integration</strong>.</p>
+
+<p>He began his career at technology firms including <strong>Wipro</strong>, building a strong foundation in complex IT and engineering operations, before completing his <strong>Master&rsquo;s degree in the United States</strong>. Currently with <strong>Compunnel Inc.</strong>, Arun delivers high-impact technical solutions across <strong>Salesforce&rsquo;s Agentforce AI ecosystem and advanced cloud infrastructure</strong> for major organizations including <strong>Kroger and Cognizant</strong>.</p>
+
+<p>An active contributor to the broader technology community, he is an <strong>author of scholarly publications</strong> and an <strong>invited peer reviewer</strong> evaluating original research across software engineering and AI.</p>
+
+<p><strong>Technical expertise:</strong> Enterprise CRM architecture &middot; Salesforce Agentforce AI &middot; Artificial intelligence integration &middot; Cloud infrastructure &middot; Retail systems &middot; Large-scale digital transformation &middot; Research publication and peer review in software engineering and AI</p>',
+        ],
     ];
 
     $default = [];
