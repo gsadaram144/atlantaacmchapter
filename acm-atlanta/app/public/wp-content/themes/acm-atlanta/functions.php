@@ -313,6 +313,18 @@ function acm_atlanta_default_officers() {
 
 <p><strong>Technical expertise:</strong> CI/CD pipeline architecture and delivery automation &middot; Enterprise Linux platform engineering &middot; Container platforms and orchestration &middot; Infrastructure automation strategy &middot; Site reliability and resilient infrastructure design &middot; Observability, monitoring and alerting at scale &middot; Cross-team engineering leadership and Agile delivery &middot; Technical mentoring</p>',
         ],
+        'Secretary' => [
+            'name'     => 'Jaylen Davis',
+            'linkedin' => 'https://www.linkedin.com/in/jaylen-d-davis/',
+            'photo'    => 'officer-secretary-jaylen-davis.jpg',
+            'bio'      => '<p>Jaylen Davis is a <strong>Software Engineer</strong> passionate about <strong>solving complex problems, building reliable applications</strong>, and continuously learning in the evolving technology landscape.</p>
+
+<p>In his current role, Jaylen works on <strong>production applications end to end</strong>: <strong>triaging issues, identifying root causes, and delivering new features</strong>. He collaborates closely with <strong>DevOps and cross-functional teams in an Agile/Scrum environment</strong>, helping keep critical systems stable while they continue to evolve.</p>
+
+<p>He is driven by <strong>critical thinking and continuous improvement</strong>, and by building solutions that create meaningful impact.</p>
+
+<p><strong>Technical expertise:</strong> Python &middot; Pandas &middot; PySpark &middot; SQL &middot; Trino &middot; Linux/Unix &middot; C++ &middot; C &middot; Java &middot; Production support and root-cause analysis &middot; Agile/Scrum delivery &middot; AI-assisted development with GitHub Copilot</p>',
+        ],
     ];
 
     $default = [];
