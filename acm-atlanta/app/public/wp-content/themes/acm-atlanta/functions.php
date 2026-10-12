@@ -303,6 +303,10 @@ function acm_atlanta_default_officers() {
 
 <p>In his current leadership role, he applies his specialized technical expertise to critical financial-services technology initiatives, collaborating with senior engineering, architecture, and business stakeholders to deliver robust and innovative solutions. His sustained record of technical contributions, leadership, and expertise in modern DevOps and cloud engineering demonstrates his ability to make <strong>significant contributions to enterprise technology and the broader field of software engineering</strong>.</p>',
         ],
+        'Vice Chair' => [
+            'name'     => 'Troy Hunt',
+            'linkedin' => 'https://www.linkedin.com/in/jtroyhunt/',
+        ],
     ];
 
     $default = [];
