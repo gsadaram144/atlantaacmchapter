@@ -307,6 +307,11 @@ function acm_atlanta_default_officers() {
             'name'     => 'Troy Hunt',
             'linkedin' => 'https://www.linkedin.com/in/jtroyhunt/',
             'photo'    => 'officer-vice-chair-troy-hunt.jpg',
+            'bio'      => '<p>Troy Hunt is a <strong>results-driven Senior Engineer</strong> with <strong>end-to-end ownership of enterprise CI/CD ecosystems, large-scale Linux and container platforms, and automation strategy</strong>. He has a proven record of <strong>improving reliability, accelerating delivery pipelines, and driving cross-team engineering initiatives</strong> in complex, multi-team enterprise environments.</p>
+
+<p>Troy has repeatedly succeeded in <strong>building resilient infrastructure</strong> and <strong>implementing observability at scale</strong>, and he is committed to <strong>mentoring engineers</strong> to raise organizational capability within fast-moving Agile delivery cycles.</p>
+
+<p><strong>Technical expertise:</strong> CI/CD pipeline architecture and delivery automation &middot; Enterprise Linux platform engineering &middot; Container platforms and orchestration &middot; Infrastructure automation strategy &middot; Site reliability and resilient infrastructure design &middot; Observability, monitoring and alerting at scale &middot; Cross-team engineering leadership and Agile delivery &middot; Technical mentoring</p>',
         ],
     ];
 
